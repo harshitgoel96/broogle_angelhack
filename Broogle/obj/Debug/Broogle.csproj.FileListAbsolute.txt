@@ -1,0 +1,28 @@
+c:\users\harshit\documents\visual studio 2010\Projects\Broogle\Broogle\Bin\Debug\ApplicationIcon.png
+c:\users\harshit\documents\visual studio 2010\Projects\Broogle\Broogle\Bin\Debug\Background.png
+c:\users\harshit\documents\visual studio 2010\Projects\Broogle\Broogle\Bin\Debug\Broogle.dll
+c:\users\harshit\documents\visual studio 2010\Projects\Broogle\Broogle\Bin\Debug\Broogle.pdb
+c:\users\harshit\documents\visual studio 2010\Projects\Broogle\Broogle\Bin\Debug\AppManifest.xaml
+c:\users\harshit\documents\visual studio 2010\Projects\Broogle\Broogle\Bin\Debug\Broogle.xap
+c:\users\harshit\documents\visual studio 2010\Projects\Broogle\Broogle\obj\Debug\ResolveAssemblyReference.cache
+c:\users\harshit\documents\visual studio 2010\Projects\Broogle\Broogle\obj\Debug\App.g.i.cs
+c:\users\harshit\documents\visual studio 2010\Projects\Broogle\Broogle\obj\Debug\MainPage.g.i.cs
+c:\users\harshit\documents\visual studio 2010\Projects\Broogle\Broogle\obj\Debug\Broogle.g.resources
+c:\users\harshit\documents\visual studio 2010\Projects\Broogle\Broogle\obj\Debug\Broogle.dll
+c:\users\harshit\documents\visual studio 2010\Projects\Broogle\Broogle\obj\Debug\Broogle.pdb
+c:\users\harshit\documents\visual studio 2010\Projects\Broogle\Broogle\obj\Debug\XapCacheFile.xml
+C:\Users\harshit\documents\visual studio 2010\Projects\Broogle\Broogle\obj\Debug\Page1.g.i.cs
+E:\Harshit\AngelHack\Broogle\Broogle\obj\Debug\ResolveAssemblyReference.cache
+E:\Harshit\AngelHack\Broogle\Broogle\obj\Debug\App.g.i.cs
+E:\Harshit\AngelHack\Broogle\Broogle\obj\Debug\MainPage.g.i.cs
+E:\Harshit\AngelHack\Broogle\Broogle\obj\Debug\Page1.g.i.cs
+E:\Harshit\AngelHack\Broogle\Broogle\obj\Debug\Broogle.g.resources
+E:\Harshit\AngelHack\Broogle\Broogle\obj\Debug\Broogle.dll
+E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\ApplicationIcon.png
+E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Background.png
+E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Broogle.dll
+E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Broogle.pdb
+E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\AppManifest.xaml
+E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Broogle.xap
+E:\Harshit\AngelHack\Broogle\Broogle\obj\Debug\Broogle.pdb
+E:\Harshit\AngelHack\Broogle\Broogle\obj\Debug\XapCacheFile.xml
