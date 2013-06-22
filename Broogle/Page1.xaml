@@ -30,20 +30,23 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             
             <ListBox Name="canvas1" >
-                <TextBlock Canvas.Left="9" Canvas.Top="6" Height="30" Name="textBlock1" Text="Name" />
-                <TextBlock Canvas.Left="12" Canvas.Top="41" Height="30" Name="textBlock2" Text="Category" />
-                <TextBlock Canvas.Left="12" Canvas.Top="77" Height="30" Name="textBlock3" Text="Item Type" />
-                <TextBlock Canvas.Left="9" Canvas.Top="113" Height="30" Name="textBlock4" Text="Manufacture country" />
-                <TextBlock Canvas.Left="12" Canvas.Top="149" Height="30" Name="textBlock5" Text="Uses" />
-                <TextBlock Canvas.Left="12" Canvas.Top="184" Height="30" Name="textBlock6" Text="Buy from" />
-                <TextBlock Canvas.Left="12" Canvas.Top="220" Height="30" Name="textBlock7" Text="Description" />
-                <TextBlock Canvas.Left="236" Canvas.Top="6" Height="30" Name="textBlock8" Text="{Binding name}" />
-                <TextBlock Canvas.Left="236" Canvas.Top="41" Height="30" Name="textBlock9" Text="{Binding Category}" />
-                <TextBlock Canvas.Left="236" Canvas.Top="77" Height="30" Name="textBlock10" Text="{Binding itemType}" />
-                <TextBlock Canvas.Left="236" Canvas.Top="113" Height="30" Name="textBlock11" Text="{Binding Manufacture_country}" />
-                <TextBlock Canvas.Left="236" Canvas.Top="149" Height="30" Name="textBlock12" Text="{Binding Uses}" />
-                <TextBlock Canvas.Left="236" Canvas.Top="184" Height="30" Name="textBlock13" Text="{Binding buy}" />
-                <TextBlock Canvas.Left="12" Canvas.Top="256" Height="30" Name="textBlock14" Text="{Binding description}" />
+                <Canvas>
+                    <TextBlock Canvas.Left="9" Canvas.Top="6" Height="30" Name="textBlock1" Text="Name" />
+                    <TextBlock Canvas.Left="12" Canvas.Top="41" Height="30" Name="textBlock2" Text="Category" />
+                    <TextBlock Canvas.Left="12" Canvas.Top="77" Height="30" Name="textBlock3" Text="Item Type" />
+                    <TextBlock Canvas.Left="9" Canvas.Top="113" Height="30" Name="textBlock4" Text="Manufacture country" />
+                    <TextBlock Canvas.Left="12" Canvas.Top="149" Height="30" Name="textBlock5" Text="Uses" />
+                    <TextBlock Canvas.Left="12" Canvas.Top="184" Height="30" Name="textBlock6" Text="Buy from" />
+                    <TextBlock Canvas.Left="12" Canvas.Top="220" Height="30" Name="textBlock7" Text="Description" />
+                    <TextBlock Canvas.Left="236" Canvas.Top="6" Height="30" Name="name" Text="{Binding name}" />
+                    <TextBlock Canvas.Left="236" Canvas.Top="41" Height="30" Name="category" Text="{Binding Category}" />
+                    <TextBlock Canvas.Left="236" Canvas.Top="77" Height="30" Name="itemType" Text="{Binding itemType}" />
+                    <TextBlock Canvas.Left="236" Canvas.Top="113" Height="30" Name="manuf" Text="{Binding Manufacture_country}" />
+                    <TextBlock Canvas.Left="236" Canvas.Top="149" Height="30" Name="use" Text="{Binding Uses}" />
+                    <TextBlock Canvas.Left="236" Canvas.Top="184" Height="30" Name="buy" Text="{Binding buy}" />
+                    <TextBlock Canvas.Left="12" Canvas.Top="256" Height="30" Name="desc" Text="{Binding description}" />
+                    <TextBlock Canvas.Left="12" Canvas.Top="300" Height="30" Name="refID" Text="{Binding description}" />
+                </Canvas>
             </ListBox>
           
         </Grid>

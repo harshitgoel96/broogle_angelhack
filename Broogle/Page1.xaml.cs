@@ -104,8 +104,25 @@ namespace Broogle
                 MessageBox.Show(data);
                 streamed.Position=0;
                 var deserialized = (RootObject)serializer.ReadObject(streamed);
-                canvas1.DataContext = deserialized;
+                
+                foreach (var meta in deserialized.results)
+                {
+                    MessageBox.Show(meta.reference_id.ToString());
+                    refID.Text = meta.reference_id;
+                    foreach(var dat in meta.metadata)
+                    {
+                        name.Text = dat.name;
+                        category.Text = dat.Category;
+                        buy.Text = dat.buy;
+                        desc.Text= dat.description;
+                        itemType.Text = dat.itemType;
+                        manuf.Text= dat.Manufacture_country;
+                        use.Text = dat.Uses;
+                        
+                    }
+                }
                 MessageBox.Show("EO CODE");
+                
                 //using (var stream = new MemoryStream(Encoding.Unicode.GetBytes(data)))
                 //{
                     //var datas = (RootObject)serializer.ReadObject(stream);
