@@ -111,7 +111,21 @@ namespace Broogle
 
         private void letsDoIt_Click(object sender, RoutedEventArgs e)
         {
-
+            using (var store = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                if (store.FileExists("array.txt"))
+                {
+                    store.DeleteFile("array.txt");
+                }
+                using (var stream = new IsolatedStorageFileStream("array.txt",
+                              FileMode.Create, FileAccess.Write, store))
+                {
+                    
+                    stream.Write(byteArray, 0, byteArray.Length);
+                    stream.Close();
+                }
+                
+            }
             
         }
     }
