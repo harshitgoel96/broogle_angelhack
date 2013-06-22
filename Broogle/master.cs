@@ -12,7 +12,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Windows.Threading;
 
-using System.Runtime.Serialization.Json;
+
 using System.Text;
 using Broogle;
 using System.Windows.Navigation;

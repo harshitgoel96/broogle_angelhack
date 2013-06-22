@@ -23,6 +23,6 @@ E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Background.png
 E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Broogle.dll
 E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Broogle.pdb
 E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\AppManifest.xaml
-E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Broogle.xap
 E:\Harshit\AngelHack\Broogle\Broogle\obj\Debug\Broogle.pdb
 E:\Harshit\AngelHack\Broogle\Broogle\obj\Debug\XapCacheFile.xml
+E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Brooglev2.xap

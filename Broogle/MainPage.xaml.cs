@@ -45,7 +45,7 @@ namespace Broogle
                     WriteableBitmap btmMap = new WriteableBitmap(image);
 
                     // write an image into the stream
-                    Extensions.SaveJpeg(btmMap, ms, image.PixelWidth,image.PixelHeight, 0, 100);
+                    Extensions.SaveJpeg(btmMap, ms, 450,450, 0, 100);
 
                     byteArray = ms.ToArray();
                     image.SetSource(ms);
@@ -88,10 +88,10 @@ namespace Broogle
                     WriteableBitmap btmMap = new WriteableBitmap(image);
 
                     // write an image into the stream
-                    Extensions.SaveJpeg(btmMap, ms, image.PixelWidth, image.PixelHeight, 0, 100);
+                    Extensions.SaveJpeg(btmMap, ms, 450,450, 0, 100);
 
                     byteArray = ms.ToArray();
-                    
+                    MessageBox.Show("lenth here=" + byteArray.Length);
                    
                 }
 
@@ -111,20 +111,24 @@ namespace Broogle
 
         private void letsDoIt_Click(object sender, RoutedEventArgs e)
         {
-            using (var store = IsolatedStorageFile.GetUserStoreForApplication())
+            if (byteArray.Length > 0 && image1.Source != null)
             {
-                if (store.FileExists("array.txt"))
+                using (var store = IsolatedStorageFile.GetUserStoreForApplication())
                 {
-                    store.DeleteFile("array.txt");
+                    if (store.FileExists("array.txt"))
+                    {
+                        store.DeleteFile("array.txt");
+                    }
+                    using (var stream = new IsolatedStorageFileStream("array.txt",
+                                  FileMode.Create, FileAccess.Write, store))
+                    {
+
+                        stream.Write(byteArray, 0, byteArray.Length);
+                        stream.Close();
+                    }
+
                 }
-                using (var stream = new IsolatedStorageFileStream("array.txt",
-                              FileMode.Create, FileAccess.Write, store))
-                {
-                    
-                    stream.Write(byteArray, 0, byteArray.Length);
-                    stream.Close();
-                }
-                
+                NavigationService.Navigate(new Uri("/Page1.xaml",UriKind.Relative));
             }
             
         }
