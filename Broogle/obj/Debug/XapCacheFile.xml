@@ -1,11 +1,13 @@
-﻿<xapCache source="E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Brooglev2.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="23-06-2013 06:02:02">
-  <file source="E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="22-06-2013 18:07:51" />
+﻿<xapCache source="E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Brooglev2.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="23-06-2013 09:35:10">
+  <file source="E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="23-06-2013 07:57:02" />
   <file source="E:\Harshit\AngelHack\Broogle\Broogle\Background.png" archivePath="Background.png" lastWriteTime="17-05-2013 18:42:54" />
   <file source="E:\Harshit\AngelHack\Broogle\Broogle\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="17-05-2013 18:42:54" />
-  <file source="E:\Harshit\AngelHack\Broogle\Broogle\obj\Debug\Broogle.dll" archivePath="Broogle.dll" lastWriteTime="23-06-2013 06:02:02" />
+  <file source="E:\Harshit\AngelHack\Broogle\Broogle\obj\Debug\Broogle.dll" archivePath="Broogle.dll" lastWriteTime="23-06-2013 09:35:10" />
   <file source="c:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Libraries\Silverlight\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="14-02-2012 21:32:10" />
+  <file source="c:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Libraries\Silverlight\Microsoft.Phone.Controls.Maps.dll" archivePath="Microsoft.Phone.Controls.Maps.dll" lastWriteTime="15-09-2011 15:36:26" />
   <file source="E:\Harshit\AngelHack\Broogle\packages\WPtoolkit.4.2013.06.11\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="23-06-2013 05:00:30" />
+  <file source="E:\Harshit\AngelHack\Broogle\packages\Newtonsoft.Json.5.0.6\lib\portable-net40+sl4+wp7+win8\Newtonsoft.Json.dll" archivePath="Newtonsoft.Json.dll" lastWriteTime="23-06-2013 09:04:08" />
   <file source="E:\Harshit\AngelHack\Broogle\Broogle\README_FIRST.txt" archivePath="README_FIRST.txt" lastWriteTime="23-06-2013 05:00:31" />
   <file source="E:\Harshit\AngelHack\Broogle\Broogle\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="17-05-2013 18:42:54" />
-  <file source="E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="23-06-2013 05:25:46" />
+  <file source="E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="23-06-2013 09:05:40" />
 </xapCache>

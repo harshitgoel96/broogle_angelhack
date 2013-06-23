@@ -15,7 +15,7 @@
             <StackPanel  >
                 <TextBlock Name="Pname" TextWrapping="Wrap" Text="{Binding Name}" Width="400"/>
                 <toolkit:Rating Name="Rating" HorizontalAlignment="Left" Value="{Binding Rating}"  />
-                <TextBlock Name="id" Text="{Binding id}" Visibility="Collapsed"/>
+                <TextBlock Name="id" Text="{Binding Id}" Visibility="Collapsed"/>
             </StackPanel>
         </DataTemplate>
         
@@ -50,7 +50,7 @@
     <!--TitlePanel contains the name of the application and page title-->
     <controls:Panorama >
         <controls:PanoramaItem Header="Top Products" Loaded="PanoramaItem_Loaded">
-            <ListBox Name="TopResults" ItemTemplate="{StaticResource DataTemplate1}" Margin="1,2,-1,-2" >
+            <ListBox Name="TopResults" ItemTemplate="{StaticResource DataTemplate1}" Margin="1,2,-1,-2" SelectionChanged="TopResults_SelectionChanged">
 
             </ListBox>
         </controls:PanoramaItem>
@@ -59,7 +59,7 @@
                 <TextBlock Text="Enter Keyword to search"/>
                 <TextBox x:Name="SearchBox"/>
                 <Button Content="Search Product" Click="Button_Click" />
-                <ListBox x:Name="searchResult" ItemTemplate="{StaticResource DataTemplate1}"/>
+                <ListBox x:Name="searchResult" ItemTemplate="{StaticResource DataTemplate1}" SelectionChanged="searchResult_SelectionChanged" />
             </StackPanel>
         </controls:PanoramaItem>
     </controls:Panorama>

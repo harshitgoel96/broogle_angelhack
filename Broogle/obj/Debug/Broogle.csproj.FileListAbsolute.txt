@@ -52,3 +52,8 @@ E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\sv-SE\Microsoft.Phone.Controls.To
 E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
 E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
 E:\Harshit\AngelHack\Broogle\Broogle\obj\Debug\Page2.g.i.cs
+E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Microsoft.Phone.Controls.Maps.dll
+E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Microsoft.Phone.Controls.Maps.xml
+E:\Harshit\AngelHack\Broogle\Broogle\obj\Debug\Page3.g.i.cs
+E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Newtonsoft.Json.dll
+E:\Harshit\AngelHack\Broogle\Broogle\Bin\Debug\Newtonsoft.Json.xml

@@ -24,7 +24,7 @@ namespace Broogle
         private string _Uses;
         private string _buy;
         private string _description;
-       // private string _name;
+        // private string _name;
         public string name
         {
             get { return _name; }
@@ -80,7 +80,7 @@ namespace Broogle
             get { return _buy; }
             set
             {
-                _buy= value;
+                _buy = value;
                 // Call OnPropertyChanged whenever the property is updated
                 OnPropertyChanged("buy");
             }
@@ -145,5 +145,27 @@ namespace Broogle
         public List<Result> results { get; set; }
     }
 
+    public class SearchDataModel
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public double Rating { get; set; }
+    }
+    public class SearchDataArray
+    {
+        public SearchDataModel[] Data { get; set; }
+    }
+    public class MasterDataModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Desc { get; set; }
+        public double Rating { get; set; }
+        public string Uses { get; set; }
+        public string Buy { get; set; }
+        public string Type { get; set; }
+        public string Price { get; set; }
+        public int IsLocation { get; set; }
+    }
 
 }
