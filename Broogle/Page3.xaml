@@ -28,7 +28,7 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <my:Map Name="map1" />
+            <my:Map Name="map1" CredentialsProvider="Ati4m_h3SsZBOJtd4RwPdc74xqqEfkbOrJIlSTTUpRKVMIz9HwQ4vEqFyWSgI7uP"/>
         </Grid>
     </Grid>
  

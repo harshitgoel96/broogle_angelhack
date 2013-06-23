@@ -168,6 +168,58 @@ namespace Broogle
         public int IsLocation { get; set; }
         public string menuf_country { get; set; }
     }
-    
+    public class Data_loc
+    {
+
+     
+        public int Id;
+
+     
+        public string Name;
+
+     
+        public string Lat;
+
+     
+        public string Lon;
+
+     
+        public string Rat;
+
+     
+        public int Prodid;
+    }
+
+    public class locationModel
+    {
+
+     
+        public Data_loc[] Data;
+    }
+    public class Data_rev
+    {
+
+
+        public int Id;
+
+
+        public string ReviewText;
+
+
+        public string ReviewerName;
+
+
+        public int Prodid;
+
+
+        public int Likes;
+    }
+
+    public class reviewModel
+    {
+
+
+        public Data_rev[] Data;
+    }
 
 }

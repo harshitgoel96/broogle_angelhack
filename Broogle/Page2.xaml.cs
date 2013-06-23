@@ -116,5 +116,10 @@ NavigationService.Navigate(new Uri("/Page1.xaml", UriKind.Relative));
             
             NavigationService.Navigate(new Uri("/Page1.xaml", UriKind.Relative));
         }
+
+        private void ApplicationBarIconButton_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+        }
     }
 }

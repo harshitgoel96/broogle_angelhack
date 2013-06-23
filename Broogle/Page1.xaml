@@ -39,7 +39,7 @@
                     <TextBlock Canvas.Left="12" Canvas.Top="184" Height="30" Name="textBlock6" Text="Buy from" />
                     <TextBlock Canvas.Left="12" Canvas.Top="220" Height="30" Name="textBlock7" Text="Description" />
                     <TextBlock Canvas.Left="236" Canvas.Top="6" Height="30" Name="name" Text="{Binding Name}" />
-                    <TextBlock Canvas.Left="236" Canvas.Top="41" Height="30" Name="category" Text="{Binding Price}" />
+                    <TextBlock Canvas.Left="236" Canvas.Top="41" Height="30" Name="Price" Text="{Binding Price}" />
                     <TextBlock Canvas.Left="236" Canvas.Top="77" Height="30" Name="itemType" Text="{Binding Type}" />
                     <TextBlock Canvas.Left="236" Canvas.Top="113" Height="30" Name="manuf" Text="{Binding menuf_country}" />
                     <TextBlock Canvas.Left="236" Canvas.Top="149" Height="30" Name="use" Text="{Binding Uses}" />
@@ -49,7 +49,9 @@
                     
                 </Canvas>
             </ListBox>
-          
+            <Button Content="Show Locations" Height="72" HorizontalAlignment="Left" Margin="6,529,0,0" Name="GetLocation" Visibility="Collapsed" IsEnabled="False" VerticalAlignment="Top" Width="438" Click="GetLocation_Click" />
+            <Button Content="Show reviews" Height="72" HorizontalAlignment="Left" Margin="6,350,0,0" Name="shoeRev" Visibility="Collapsed" Click="shoeRev_Click" VerticalAlignment="Top" Width="438" IsEnabled="False"/>
+            <TextBlock Visibility="Collapsed" Name="hiden"/>
         </Grid>
     </Grid>
  

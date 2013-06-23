@@ -11,24 +11,24 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using System.Runtime.Serialization.Json;
-using System.IO;
 using Newtonsoft.Json;
-using Microsoft.Phone.Controls.Maps;
+using System.IO;
 
 namespace Broogle
 {
-    public partial class Page3 : PhoneApplicationPage
+    public partial class Page4 : PhoneApplicationPage
     {
-        public Page3()
+        public Page4()
         {
             InitializeComponent();
         }
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
+            MessageBox.Show("Onnevegated to called");
             string k = PhoneApplicationService.Current.State["Id"].ToString();
             if (!string.IsNullOrEmpty(k))
             {
+                MessageBox.Show("got the id");
                 getData(k);
             }
             base.OnNavigatedTo(e);
@@ -37,7 +37,7 @@ namespace Broogle
         {
             string responsed = "";
             //DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(SearchDataArray));
-            string url = "http://indiancardists.com/getLocations.php?pid=" + id;
+            string url = "http://indiancardists.com/getReviews.php?pid=" + id;
             var request = (HttpWebRequest)WebRequest.Create(new Uri(url));
             request.BeginGetResponse(r =>
             {
@@ -52,34 +52,15 @@ namespace Broogle
                         int stop = response.LastIndexOf("}");
                         responsed = response.Substring(0, stop + 1);
                         MessageBox.Show(responsed);
-                        locationModel ent = JsonConvert.DeserializeObject<locationModel>(responsed) as locationModel;
-                        Pushpin pin ;
-
-                        //List<Pushpin> pinlist=new List<Pushpin>();
-                        foreach (var loc in ent.Data)
+                        reviewModel ent = JsonConvert.DeserializeObject<reviewModel>(responsed) as reviewModel;
+                        foreach (var d in ent.Data)
                         {
-
-                            
-                            pin = new Pushpin();
-                            pin.Location = new System.Device.Location.GeoCoordinate(Convert.ToDouble(loc.Lat), Convert.ToDouble(loc.Lon));
-                            pin.Content = loc.Name;
-                            map1.Children.Add(pin);
-                            map1.SetView( LocationRect.CreateLocationRect(pin.Location));
+                            MessageBox.Show(d.ReviewText);
                         }
-                        
-                        map1.ZoomLevel = 12;
-                        
-                        //name.Text = ent.Name;
-                        //itemType.Text = ent.Type;
-                        //buy.Text = ent.Buy;
-                        //desc.Text = ent.Desc;
-                        //refID.Text = ent.Id.ToString();
-                        //price.Text = ent.Price;
-                        //use.Text = ent.Uses;
                     }));
 
                 }
             }, request);
-        }
+        }    
     }
 }
