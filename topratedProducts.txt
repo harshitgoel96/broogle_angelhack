@@ -1,0 +1,1 @@
+select m.id,m.name as Name ,m.description as Description,m.Rating as Rating,m.item_uses as Uses,m.item_buy as buy,it.itemtype as type, pr.price as Price_Range from Master m inner join ItemType it on m.item_type_id=it.id inner join PriceBracket pr on m.priceBracketId=pr.id where it.itemtype==2 order by m.Rating;

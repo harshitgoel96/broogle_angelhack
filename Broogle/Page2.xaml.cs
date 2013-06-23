@@ -27,7 +27,7 @@ namespace Broogle
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            getTopRatedProduct();
         }
         private void getTopRatedProduct()
         { 
