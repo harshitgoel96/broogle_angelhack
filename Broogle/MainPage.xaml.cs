@@ -15,11 +15,18 @@ using System.IO;
 using Microsoft.Phone.Tasks;
 using System.IO.IsolatedStorage;
 using System.Windows.Resources;
+using System.Runtime.Serialization.Json;
+using System.Text;
+using Microsoft.Phone.Shell;
 
 namespace Broogle
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        public string url;
+        public Dictionary<string, object> parameters;
+        string boundary = "----------" + DateTime.Now.Ticks.ToString();
+
         // Constructor
         PhotoChooserTask photoChooserTask;
         CameraCaptureTask photoCameraCapture;
@@ -39,7 +46,7 @@ namespace Broogle
                 BitmapImage image = new BitmapImage();
                 image.SetSource(e.ChosenPhoto);
                // image1.Source = image;
-                SaveToIsolatedStorage(e.ChosenPhoto, "temp.jpg");
+        
                 using (MemoryStream ms = new MemoryStream())
                 {
                     WriteableBitmap btmMap = new WriteableBitmap(image);
@@ -56,24 +63,7 @@ namespace Broogle
             }
             catch (ArgumentNullException) { /* Nothing */ }
         }
-        private void SaveToIsolatedStorage(Stream imageStream, string fileName)
-        {
-            using (IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
-            {
-                if (myIsolatedStorage.FileExists(fileName))
-                {
-                    myIsolatedStorage.DeleteFile(fileName);
-                }
-
-                IsolatedStorageFileStream fileStream = myIsolatedStorage.CreateFile(fileName);
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.SetSource(imageStream);
-
-                WriteableBitmap wb = new WriteableBitmap(bitmap);
-                wb.SaveJpeg(fileStream, wb.PixelWidth, wb.PixelHeight, 0, 85);
-                fileStream.Close();
-            }
-        }
+        
         private void photoChooserTask_Completed(object sender, PhotoResult e)
         {
             try
@@ -81,7 +71,7 @@ namespace Broogle
                 BitmapImage image = new BitmapImage();
                 image.SetSource(e.ChosenPhoto);
                 image1.Source = image;
-                SaveToIsolatedStorage(e.ChosenPhoto, "temp.jpg");
+        
 
                 using (MemoryStream ms = new MemoryStream())
                 {
@@ -109,26 +99,137 @@ namespace Broogle
             photoCameraCapture.Show();
         }
 
+        public void Submit()
+        {
+
+            // Prepare web request...
+            HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(new Uri("https://query-api.kooaba.com/v4/query", UriKind.Absolute));
+            myRequest.Method = "POST";
+            myRequest.ContentType = string.Format("multipart/form-data; boundary={0}", boundary);
+            myRequest.Headers["Authorization"] = " Token ZxIdYnP7M7kruyvNdhaWRYsB67SFpT0ynhfWY4rY";
+            myRequest.Accept = "application/json";
+
+
+            myRequest.BeginGetRequestStream(new AsyncCallback(GetRequestStreamCallback), myRequest);
+        }
+
+        private void GetRequestStreamCallback(IAsyncResult asynchronousResult)
+        {
+            HttpWebRequest request = (HttpWebRequest)asynchronousResult.AsyncState;
+            Stream postStream = request.EndGetRequestStream(asynchronousResult);
+
+            writeMultipartObject(postStream, parameters);
+            postStream.Close();
+            //MessageBox.Show("Check output");
+
+            request.BeginGetResponse(new AsyncCallback(GetResponseCallback), request);
+        }
+        string data;
+        private void GetResponseCallback(IAsyncResult asynchronousResult)
+        {
+            string Id="";
+            HttpWebRequest request = (HttpWebRequest)asynchronousResult.AsyncState;
+
+            HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(asynchronousResult);
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(RootObject));
+            Stream streamResponse = response.GetResponseStream();
+            StreamReader streamRead = new StreamReader(streamResponse);
+            //MessageBox.Show(streamRead.ReadToEnd());
+            data = streamRead.ReadToEnd();
+            System.Diagnostics.Debug.WriteLine("response code:" + response.StatusCode);
+            //System.Diagnostics.Debug.WriteLine(" stream read data" + streamRead.ReadToEnd());
+            // System.Diagnostics.Debug.WriteLine("  resp read data" + response.ReadToEnd());
+            streamResponse.Close();
+            streamRead.Close();
+            // Release the HttpWebResponse
+            response.Close();
+            //System.Diagnostics.Debug.WriteLine(" response " + response.ToString());
+            //System.Diagnostics.Debug.WriteLine(" stream read " + streamRead.ToString());
+            System.Diagnostics.Debug.WriteLine(data);
+            Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                byte[] byteArrayed = Encoding.UTF8.GetBytes(data);
+                MemoryStream streamed = new MemoryStream(byteArrayed);
+                MessageBox.Show(data);
+                streamed.Position = 0;
+                var deserialized = (RootObject)serializer.ReadObject(streamed);
+
+                foreach (var value in deserialized.results)
+                {
+                    Id = value.reference_id;
+                }
+                if (!string.IsNullOrEmpty(Id))
+                {
+                    PhoneApplicationService.Current.State["Id"] = Id;
+                    NavigationService.Navigate(new Uri("/Page1.xaml", UriKind.Relative));
+                }
+                
+
+            });
+
+        }
+
+
+        public void writeMultipartObject(Stream stream, object data)
+        {
+            StreamWriter writer = new StreamWriter(stream);
+            if (data != null)
+            {
+                foreach (var entry in data as Dictionary<string, object>)
+                {
+                    WriteEntry(writer, entry.Key, entry.Value);
+                }
+            }
+            writer.Write("--");
+            writer.Write(boundary);
+            writer.WriteLine("--");
+            writer.Flush();
+        }
+
+        private void WriteEntry(StreamWriter writer, string key, object value)
+        {
+            System.Diagnostics.Debug.WriteLine("Writing the image1");
+            if (value != null)
+            {
+                writer.Write("--");
+                writer.WriteLine(boundary);
+                if (value is byte[])
+                {
+                    byte[] ba = value as byte[];
+
+                    writer.WriteLine(@"Content-Disposition: form-data; name=""{0}""; filename=""{1}""", key, "image.jpg");
+                    writer.WriteLine(@"Content-Type: application/octet-stream");
+                    //writer.WriteLine(@"Content-Type: image / jpeg");
+                    writer.WriteLine(@"Content-Length: " + ba.Length);
+                    writer.WriteLine();
+                    writer.Flush();
+                    System.Diagnostics.Debug.WriteLine("Writen the image1********");
+                    Stream output = writer.BaseStream;
+
+                    output.Write(ba, 0, ba.Length);
+                    output.Flush();
+                    writer.WriteLine();
+                }
+                else
+                {
+                    writer.WriteLine(@"Content-Disposition: form-data; name=""{0}""", key);
+                    writer.WriteLine();
+                    writer.WriteLine(value.ToString());
+                }
+            }
+        }
+
+
         private void letsDoIt_Click(object sender, RoutedEventArgs e)
         {
             if (byteArray.Length > 0 && image1.Source != null)
             {
-                using (var store = IsolatedStorageFile.GetUserStoreForApplication())
-                {
-                    if (store.FileExists("array.txt"))
-                    {
-                        store.DeleteFile("array.txt");
-                    }
-                    using (var stream = new IsolatedStorageFileStream("array.txt",
-                                  FileMode.Create, FileAccess.Write, store))
-                    {
+                Dictionary<string, object> data = new Dictionary<string, object>() { { "image", byteArray } };
 
-                        stream.Write(byteArray, 0, byteArray.Length);
-                        stream.Close();
-                    }
+                            parameters = data;
 
-                }
-                NavigationService.Navigate(new Uri("/Page1.xaml",UriKind.Relative));
+                            Submit();
+                //NavigationService.Navigate(new Uri("/Page1.xaml",UriKind.Relative));
             }
             
         }

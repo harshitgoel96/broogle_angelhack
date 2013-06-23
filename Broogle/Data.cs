@@ -166,6 +166,8 @@ namespace Broogle
         public string Type { get; set; }
         public string Price { get; set; }
         public int IsLocation { get; set; }
+        public string menuf_country { get; set; }
     }
+    
 
 }
