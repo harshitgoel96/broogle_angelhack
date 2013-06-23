@@ -8,13 +8,13 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"  
     x:Class="Broogle.Page2"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
     <phone:PhoneApplicationPage.Resources>
-        <DataTemplate x:Key="DataTemplate1">
+        <DataTemplate x:Key="DataTemplate1" >
             <StackPanel  >
-                <TextBlock Name="Pname" TextWrapping="Wrap" Text="{Binding Name}" Width="400"/>
-                <toolkit:Rating Name="Rating" HorizontalAlignment="Left" Value="{Binding Rating}"  />
+                <TextBlock Name="Pname" TextWrapping="Wrap" Text="{Binding Name}" Width="400" />
+                <toolkit:Rating Name="Rating" HorizontalAlignment="Left"  Value="{Binding Rating}"  />
                 <TextBlock Name="id" Text="{Binding Id}" Visibility="Collapsed"/>
             </StackPanel>
         </DataTemplate>
@@ -25,16 +25,16 @@
 
 
     <!--Sample code showing usage of ApplicationBar-->
-    <phone:PhoneApplicationPage.ApplicationBar>
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar Mode="Minimized"  Opacity="1.0" IsVisible="True" IsMenuEnabled="True">
             <shell:ApplicationBarIconButton IconUri="/camera.png" Click="ApplicationBarIconButton_Click" Text="TakePhoto"/>
-    <!--        <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+        <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
                 <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>-->
+            </shell:ApplicationBar.MenuItems>\
         </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
 
     <phone:PhoneApplicationPage.FontFamily>
         <StaticResource ResourceKey="PhoneFontFamilyNormal"/>
@@ -50,7 +50,7 @@
     <!--TitlePanel contains the name of the application and page title-->
     <controls:Panorama >
         <controls:PanoramaItem Header="Top Products" Loaded="PanoramaItem_Loaded">
-            <ListBox Name="TopResults" ItemTemplate="{StaticResource DataTemplate1}" Margin="1,2,-1,-2" SelectionChanged="TopResults_SelectionChanged">
+            <ListBox Name="TopResults"  ItemTemplate="{StaticResource DataTemplate1}" Margin="1,2,-1,-2" SelectionChanged="TopResults_SelectionChanged">
 
             </ListBox>
         </controls:PanoramaItem>

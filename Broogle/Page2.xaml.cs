@@ -37,7 +37,7 @@ namespace Broogle
         private void getTopRatedProduct()
         {
             string responsed="";
-            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(SearchDataArray));
+            //DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(SearchDataArray));
             string url = "http://indiancardists.com/topRated.php";
             var request = (HttpWebRequest)WebRequest.Create(new Uri(url));
             request.BeginGetResponse(r =>
@@ -52,7 +52,7 @@ namespace Broogle
                     {
                         int stop = response.LastIndexOf("}");
                         responsed = response.Substring(0, stop +1);
-                        MessageBox.Show(responsed);
+                        //MessageBox.Show(responsed);
                         SearchDataArray ent = JsonConvert.DeserializeObject<SearchDataArray>(responsed) as SearchDataArray;
                         foreach (var da in ent.Data)
                         {

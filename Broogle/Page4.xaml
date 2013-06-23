@@ -58,7 +58,9 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ListBox Name="listBox1" ItemTemplate="{StaticResource DataTemplate1}" />
+            <StackPanel Name="SP1">
+                <ListBox Name="listBox1" ItemTemplate="{StaticResource DataTemplate1}" />
+            </StackPanel>
         </Grid>
     </Grid>
 

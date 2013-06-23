@@ -53,10 +53,7 @@ namespace Broogle
                         responsed = response.Substring(0, stop + 1);
                         MessageBox.Show(responsed);
                         reviewModel ent = JsonConvert.DeserializeObject<reviewModel>(responsed) as reviewModel;
-                        foreach (var d in ent.Data)
-                        {
-                            MessageBox.Show(d.ReviewText);
-                        }
+                        SP1.DataContext = ent;
                     }));
 
                 }
